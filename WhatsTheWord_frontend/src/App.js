@@ -7,7 +7,8 @@ import Game from './components/game'
 import GameOver from './components/gameover'
 import io from 'socket.io-client'
 
-const socket = io.connect('http://localhost:5000/')
+const url = process.env.REACT_APP_BACKEND_URL || "http://localhost:5000/"
+const socket = io.connect(url)
 
 const pages = {home : 0, lobby : 1, game : 2, gameOver : 3}
 
