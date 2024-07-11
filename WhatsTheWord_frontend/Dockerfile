@@ -9,6 +9,10 @@ COPY package*.json ./
 # Install dependencies
 RUN npm install --production
 
+# Set environment variable
+ARG REACT_APP_BACKEND_URL
+ENV REACT_APP_BACKEND_URL=$REACT_APP_BACKEND_URL
+
 # Copy the rest of the application code
 COPY . .
 
