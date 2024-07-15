@@ -21,19 +21,7 @@ COPY /WhatsTheWord_frontend .
 # Build the React app for production
 RUN npm run build
 
-# # Stage 2: Serve the React application using nginx
-# FROM nginx:alpine
-
-# # Copy the build output from the previous stage
-# COPY --from=build /app/build /usr/share/nginx/html
-
-# # Expose port 80 to allow external access
-# EXPOSE 80
-
-# # Default command to start nginx when the container starts
-# CMD ["nginx", "-g", "daemon off;"]
-
-# Use a lightweight Node.js image
+# Stage 2: Run backend
 FROM node:14-alpine
 
 # Set the working directory inside the container
