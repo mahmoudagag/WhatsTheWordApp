@@ -3,20 +3,12 @@ version: '3.8'
 services:
   backend:
     build:
-      context: ./WhatsTheWord_backend        # Path to the Dockerfile for the backend
+      context: ./        # Path to the Dockerfile for the backend
       dockerfile: Dockerfile    # Dockerfile name if not 'Dockerfile'
+      args:
+        - REACT_APP_BACKEND_URL=http://localhost:3000/
     ports:
       - "3000:3000"             # Expose backend's port 3000
     restart: always             # Restart policy
     environment:
       - PORT=3000
-
-  frontend:
-    build:
-      context: ./WhatsTheWord_frontend       # Path to the Dockerfile for the frontend
-      dockerfile: Dockerfile    # Dockerfile name if not 'Dockerfile'  
-      args:
-        - REACT_APP_BACKEND_URL=http://localhost:3000/
-    ports:
-      - "80:80"                 # Expose frontend's port 80
-    restart: always             # Restart policy
